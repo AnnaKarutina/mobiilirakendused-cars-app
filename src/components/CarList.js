@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import axios from 'axios';
 
+import CarDetail from './CarDetail'
+
 const CarList = () => {
-  const [cars, getCars] = useState('');
+  const [cars, getCars] = useState([]);
 
   useEffect(() => {
     getAllCars();
@@ -22,13 +24,13 @@ const CarList = () => {
 
   const renderList = () => {
     return cars.map(brand => {
-      return <Text key={brand.model[0].name}>{brand.model[0].name}</Text>;
+      return <CarDetail key={brand.model[0].name} brand={brand}/>;
     });
   };
 
   return (
     <View>
-      <Text>{renderList()}</Text>
+      <ScrollView>{renderList()}</ScrollView>
     </View>
   );
 };
