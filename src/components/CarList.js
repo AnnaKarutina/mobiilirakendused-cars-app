@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { View, Text } from "react-native";
 
 
-const CarList = () => {
-
-  return (
-    <View>
-      <Text>Car List</Text>
-    </View>
-  );
-};
+class CarList extends Component {
+  render() {
+    return (
+      <View>
+        <Text>Car List</Text>
+      </View>
+    );
+  }
+}
 
 export default CarList;
